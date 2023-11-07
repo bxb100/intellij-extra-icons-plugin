@@ -39,6 +39,3 @@ jobs:
         with:
           tag_name: 'latest'
           files: ${{ steps.find_zip.outputs.zip_path }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
