@@ -1,12 +1,8 @@
 name: Build
-on: [ push, pull_request ]
+on: workflow_dispatch
 jobs:
   run:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ij: [ IC-2023.1, IC-LATEST-STABLE, IC-LATEST-EAP-SNAPSHOT ]
-
     steps:
       - uses: actions/checkout@v3
 
@@ -22,4 +18,26 @@ jobs:
           gradle-home-cache-cleanup: true
 
       - name: Build and verify
-        run: ./gradlew clean buildPlugin test verifyPlugin verifypluginconfiguration -PpluginVerifyProductDescriptor=true -PpluginIdeaVersion=${{ matrix.ij }} --warning-mode all
+        run: make buildfree
+      
+      - name: Locate ZIP File
+        id: find_zip
+        run: |
+          find ./build/distributions -type f -name "*.zip"
+          echo "::set-output name=zip_path::$(find ./build/distributions -type f -name '*.zip')"
+        shell: bash
+
+      - uses: dev-drprasad/delete-tag-and-release@v1.0 # PRERELEASE is v1.0 and can also be used to test and give us feedback
+        with:
+          tag_name: 'latest' #(required) tag name to delete 
+          github_token: ${{ secrets.GH_PAT }} # (required) a GitHub token with write access to the repo that needs to be modified
+        
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: 'latest'
+          files: ${{ steps.find_zip.outputs.zip_path }}
+          token: ${{ secrets.GH_PAT }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
