@@ -1,10 +1,11 @@
 name: Build
 on: 
   workflow_dispatch:
-    version:
-      required: true
-      default: 'latest'
-      type: string
+    inputs:
+      version:
+        required: true
+        default: 'latest'
+        type: string
 permissions:
   contents: write
 jobs:
