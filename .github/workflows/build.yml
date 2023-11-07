@@ -33,11 +33,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }} # (required) a GitHub token with write access to the repo that needs to be modified
         
       - name: Create GitHub Release
+        if: always()
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: 'latest'
           files: ${{ steps.find_zip.outputs.zip_path }}
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
