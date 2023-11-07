@@ -1,5 +1,10 @@
 name: Build
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    version:
+      required: true
+      default: 'latest'
+      type: string
 permissions:
   contents: write
 jobs:
@@ -7,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-tags: true
-
+      - run: |
+          echo ${{ inputs.version }};
+          git tag -a ${{ inputs.version }} -m "version ${{ inputs.version }}"
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
@@ -33,7 +38,7 @@ jobs:
 
       - uses: dev-drprasad/delete-tag-and-release@v1.0 # PRERELEASE is v1.0 and can also be used to test and give us feedback
         with:
-          tag_name: 'latest' #(required) tag name to delete 
+          tag_name: ${{ inputs.version }} #(required) tag name to delete 
           github_token: ${{ secrets.GITHUB_TOKEN }} # (required) a GitHub token with write access to the repo that needs to be modified
         
       - name: Create GitHub Release
@@ -41,5 +46,5 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: 'latest'
+          tag_name: ${{ inputs.version }}
           files: ${{ steps.find_zip.outputs.zip_path }}
