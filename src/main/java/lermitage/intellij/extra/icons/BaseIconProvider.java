@@ -203,6 +203,9 @@ public abstract class BaseIconProvider
     public void decorate(ProjectViewNode<?> node, PresentationData data) {
         try {
             VirtualFile virtualFile = node.getVirtualFile();
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("ProjectViewNodeDecorator->" + (virtualFile == null ? null : virtualFile.getPath()));
+            }
             if (virtualFile != null) {
                 File file = new File(virtualFile.getPath());
                 FileType fileType = file.isDirectory() ? FileType.FOLDER : FileType.FILE;

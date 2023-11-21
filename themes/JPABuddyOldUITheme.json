@@ -1,0 +1,63 @@
+{
+  "name": "JPABuddyOldUITheme_v1",
+  "models": [
+    {
+      "ideIcon": "/icons/tree/Explorer.svg",
+      "icon": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiNENjlERUMiIGQ9Ik0xMSA1SDV2NkgxVjFoMTB2NHoiLz48cGF0aCBmaWxsPSIjNkU2RTZFIiBkPSJNNiA2aDZ2MUg2em0wIDJoNnYxSDZ6bTAgMmg2djFINnptMCAyaDZ2MUg2eiIvPjwvZz48L3N2Zz4=",
+      "description": "JPA Explorer toolwindow",
+      "iconPack": "jpa-buddy",
+      "modelType": "ICON",
+      "iconType": "SVG",
+      "enabled": true,
+      "conditions": [
+        {
+          "start": false,
+          "eq": false,
+          "mayEnd": false,
+          "end": false,
+          "noDot": false,
+          "checkParent": false,
+          "hasRegex": false,
+          "enabled": true,
+          "checkFacets": false,
+          "hasIconEnabler": false,
+          "names": [],
+          "parentNames": [],
+          "extensions": [],
+          "facets": []
+        }
+      ],
+      "autoLoadNewUIIconVariant": false,
+      "inFreemium": false
+    },
+    {
+      "ideIcon": "/META-INF/buddyIconMono.svg",
+      "icon": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPHBhdGggZmlsbD0iIzlBQTdCMCIgZmlsbC1vcGFjaXR5PSIuOCIgZD0iTTEsMyBMMTUsMyBMMTUsMTMgTDEsMTMgTDEsMyBaIE0yLDQgTDIsMTIgTDE0LDEyIEwxNCw0IEwyLDQgWiIvPgogICAgPHBhdGggZmlsbD0iI0FBNTlDOSIgZmlsbC1vcGFjaXR5PSIuNyIgZD0iTTYuODk0MjMwNzcgOS42MDMwMjE5OEw0LjU3MDA1NDk1IDkuNjAzMDIxOTggNC4wODM3OTEyMSAxMSAzIDExIDUuMjY2NDgzNTIgNSA2LjIwMTkyMzA4IDUgOC40NzI1Mjc0NyAxMSA3LjM4NDYxNTM4IDExIDYuODk0MjMwNzcgOS42MDMwMjE5OHpNNC44NjI2MzczNiA4Ljc2MjM2MjY0TDYuNjAxNjQ4MzUgOC43NjIzNjI2NCA1LjczMjE0Mjg2IDYuMjczMzUxNjUgNC44NjI2MzczNiA4Ljc2MjM2MjY0ek0xMi43ODM5MTU5IDguOTA2OTY3ODNDMTIuNzgzOTE1OSA5LjU3NjEyNjgzIDEyLjYzNDU1MjMgMTAuMTA4NTI1MSAxMi4zMzU4MjA2IDEwLjUwNDE3ODcgMTIuMDM3MDg4OSAxMC44OTk4MzIyIDExLjYyNjE3MyAxMS4wOTc2NTYgMTEuMTAzMDYwNiAxMS4wOTc2NTYgMTAuNTk4NTM2IDExLjA5NzY1NiAxMC4yMDU1NDM3IDEwLjkxNTc2NDMgOS45MjQwNzIxIDEwLjU1MTk3NTVMOS44NzYyNzUyNyAxMS4wMTc5OTQ2IDkgMTEuMDE3OTk0NiA5IDQuOSA5Ljk2Nzg4NTg3IDQuOSA5Ljk2Nzg4NTg3IDcuMTIyNTUyNzNDMTAuMjQ2NzAyMSA2Ljc5MzI4NDAxIDEwLjYyMjQzNDYgNi42Mjg2NTIxMiAxMS4wOTUwOTQ1IDYuNjI4NjUyMTIgMTEuNjIwODYyMyA2LjYyODY1MjEyIDEyLjAzMzc2OTcgNi44MjM4MjA1NyAxMi4zMzM4MjkxIDcuMjE0MTYzMzMgMTIuNjMzODg4NSA3LjYwNDUwNjA4IDEyLjc4MzkxNTkgOC4xNTAxODExMyAxMi43ODM5MTU5IDguODUxMjA0ODVMMTIuNzgzOTE1OSA4LjkwNjk2Nzgzek0xMS44MTg4NjU3IDguODIyNjU0MzRDMTEuODE4ODY1NyA4LjM1NTMwNTE5IDExLjczNjU0OTcgOC4wMDQ3OTg1OSAxMS41NzE5MTU0IDcuNzcxMTI0MDEgMTEuNDA3MjgxIDcuNTM3NDQ5NDQgMTEuMTY4Mjk5MiA3LjQyMDYxMzkgMTAuODU0OTYyOSA3LjQyMDYxMzkgMTAuNDM1NDEwOCA3LjQyMDYxMzkgMTAuMTQwNjY2NiA3LjYwMzgzMzI3IDkuOTcwNzIxNDcgNy45NzAyNzc0OEw5Ljk3MDcyMTQ3IDkuNzQ2NzI2NDRDMTAuMTQzMzIyIDEwLjEyMTEzNjggMTAuNDQwNzIxNSAxMC4zMDgzMzkyIDEwLjg2MjkyOSAxMC4zMDgzMzkyIDExLjE2NTY0MzggMTAuMzA4MzM5MiAxMS4zOTkzMTQ5IDEwLjE5NTQ4NjcgMTEuNTYzOTQ5MiA5Ljk2OTc3ODMzIDExLjcyODU4MzYgOS43NDQwNjk5MyAxMS44MTM1NTQ5IDkuNDAyODU3MDYgMTEuODE4ODY1NyA4Ljk0NjEyOTQ5TDExLjgxODg2NTcgOC44MjI2NTQzNHoiLz4KICA8L2c+Cjwvc3ZnPgo=",
+      "description": "JPA Designer toolwindow",
+      "iconPack": "jpa-buddy",
+      "modelType": "ICON",
+      "iconType": "SVG",
+      "enabled": true,
+      "conditions": [
+        {
+          "start": false,
+          "eq": false,
+          "mayEnd": false,
+          "end": false,
+          "noDot": false,
+          "checkParent": false,
+          "hasRegex": false,
+          "enabled": true,
+          "checkFacets": false,
+          "hasIconEnabler": false,
+          "names": [],
+          "parentNames": [],
+          "extensions": [],
+          "facets": []
+        }
+      ],
+      "autoLoadNewUIIconVariant": false,
+      "inFreemium": false
+    }
+  ]
+}

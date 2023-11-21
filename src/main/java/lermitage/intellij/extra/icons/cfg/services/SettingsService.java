@@ -33,7 +33,7 @@ public abstract class SettingsService {
 
     private static final ResourceBundle i18n = I18nUtils.getResourceBundle();
 
-    public static final double DEFAULT_ADDITIONAL_UI_SCALE = JBUIScale.sysScale();
+    public static final double DEFAULT_ADDITIONAL_UI_SCALE = JBUIScale.sysScale(); // TODO see what fits best: JBUIScale.sysScale or JBUI.pixScale. JBUI.pixScale can take a frame, which may be useful with multiple displays
 
     public List<String> getDisabledModelIds() {
         if (disabledModelIds == null) { // a malformed xml file could make it null

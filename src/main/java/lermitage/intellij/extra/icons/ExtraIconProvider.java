@@ -129,17 +129,20 @@ public class ExtraIconProvider extends BaseIconProvider implements DumbAware {
                     .eq(".nuget"),
                 ofDir("dir_pytest_cache", "extra-icons/folder_tmp.svg", "PyTest cache: .pytest_cache folder")
                     .eq(".pytest_cache")
-                    .altIcons("extra-icons/folder_pytest_cache.svg", "extra-icons/folder_pytest_cache_alt.svg"),
+                    .altIcons("extra-icons/folder_pytest_cache.svg")
+                    .autoLoadNewUIIconVariant(),
                 ofDir("dir_python_venv", "extra-icons/folder_python_venv.svg", "Python Virtual Environment: .venv folder")
                     .eq(".venv")
-                    .altIcons("extra-icons/folder_python_venv_alt.svg"),
+                    .autoLoadNewUIIconVariant(),
                 ofDir("dir_python_venv_nodot", "extra-icons/folder_python_venv.svg", "Python Virtual Environment: venv folder")
                     .eq("venv")
-                    .altIcons("extra-icons/folder_python_venv_alt.svg"),
+                    .autoLoadNewUIIconVariant(),
                 ofDir("dir_python_egginfo", "extra-icons/folder_tmp.svg", "Python: .egg-info folder")
-                    .end(".egg-info"),
+                    .end(".egg-info")
+                    .autoLoadNewUIIconVariant(),
                 ofDir("dir_python_dottox", "extra-icons/folder_tmp.svg", "Python: .tox folder")
-                    .eq(".tox"),
+                    .eq(".tox")
+                    .autoLoadNewUIIconVariant(),
                 ofDir("dir_teamcity", "extra-icons/folder_teamcity.svg", "TeamCity: .teamcity folder")
                     .eq(".teamcity")
                     .autoLoadNewUIIconVariant(),

@@ -1,8 +1,5 @@
 ## Downloadable Icon Packs
 
-:warning: *Warning, if you use the new UI: the new UI is a bit buggy. You may have to restart the IDE several times in order to see the new icons. This is totally random. At least, when it fails, it simply doesn't replace icons: the Icon Pack doesn't work, but it won't break your IDE and you will continue to see the regular icons.*  
-:warning: *Unfortunately, this is a problem on the JetBrains side, and I can do nothing for now. Sorry for that. **[Up-voting this issue](https://youtrack.jetbrains.com/issue/IDEA-321006/cant-override-IDE-SVG-icons-using-IconPathPatcher-in-newUI) would help**. Thanks!*
-
 ### How-To
 
 Download a JSON Icon Pack (see Themes below), then go to Extra Icons settings, and hit <kbd>Import from file</kbd> button.  
@@ -10,13 +7,40 @@ Download a JSON Icon Pack (see Themes below), then go to Extra Icons settings, a
 
 ---
 
-### NewUIFilesToOldUITheme
+### AIAssistantTheme
 
-- download link: [NewUIFilesToOldUITheme.json](https://raw.githubusercontent.com/jonathanlermitage/intellij-extra-icons-plugin/master/themes/NewUIFilesToOldUITheme.json)
-- nb of icons: <!--NewUIFilesToOldUITheme_nbOfIcons_start-->81<!--NewUIFilesToOldUITheme_nbOfIcons_end-->
-- designed for: the new UI
-- description: it replaces some new UI icons (files and folders) by old UI icons, like Class and Interface files, Package and Source Root folders... Based on IJ Community icons
+- download link: [AIAssistantTheme.json](https://raw.githubusercontent.com/jonathanlermitage/intellij-extra-icons-plugin/master/themes/AIAssistantTheme.json)
+- designed for: both old and new UIs, light theme
+- description: replaces the AI Assistant Star icon by the new Spiral icon
 - changelog:
+    - v1 - 2023/11/09: initial version
+
+Screenshot:  
+![FilesOldUITheme Screenshot](media/AIAssistantTheme.png)
+
+---
+
+### JPABuddyOldUITheme
+
+- download link: [JPABuddyOldUITheme.json](https://raw.githubusercontent.com/jonathanlermitage/intellij-extra-icons-plugin/master/themes/JPABuddyOldUITheme.json)
+- designed for: the old UI, light theme
+- description: replaces JPA Explorer and JPA Designer gray icons by new and colorful icons
+- changelog:
+  - v1 - 2023/11/09: initial version
+
+Screenshot:  
+![FilesOldUITheme Screenshot](media/JPABuddyOldUITheme.png)
+
+---
+
+### FilesOldUITheme
+
+- download link: [FilesOldUITheme.json](https://raw.githubusercontent.com/jonathanlermitage/intellij-extra-icons-plugin/master/themes/FilesOldUITheme.json)
+- nb of icons: <!--FilesOldUITheme_nbOfIcons_start-->82<!--FilesOldUITheme_nbOfIcons_end-->
+- designed for: the new UI, light theme
+- description: replaces some new UI icons (files and folders) by old UI icons, like Class and Interface files, Package and Source Root folders... Based on IJ Community icons
+- changelog:
+  - v8 - 2023/11/17: 1 new icon (/fileTypes/microsoftWindows.svg)
   - v7 - 2023/08/07: 1 new icon (/fileTypes/uiForm.svg)
   - v6 - 2023/06/14: 1 new icon (/fileTypes/regexp.svg)
   - v5 - 2023/05/09: 8 new icons
@@ -26,6 +50,6 @@ Download a JSON Icon Pack (see Themes below), then go to Extra Icons settings, a
   - v1 - 2023/03/28: initial version, 62 icons
 
 Screenshot (may be outdated):  
-![NewUIFilesToOldUITheme Screenshot](media/NewUIFilesToOldUITheme.png)
+![FilesOldUITheme Screenshot](media/FilesOldUITheme.png)
 
 ---

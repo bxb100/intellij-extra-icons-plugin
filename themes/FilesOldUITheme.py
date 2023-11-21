@@ -41,7 +41,7 @@ def json_icon_pack_ij(items: list[str], version: int) -> str:
     :param version: version number
     :return: JSON IconPack string
     """
-    template = """{"name": "NewUIFilesToOldUITheme_v{icon_pack_version}","models": [
+    template = """{"name": "FilesOldUITheme_v{icon_pack_version}","models": [
 {icon_pack_items_str}
 ]}
 """
@@ -91,7 +91,7 @@ def icon_pack_ij_item(icon_path, icon_b64) -> str:
 def get_icon_pack_version_and_nb_icons_from_file(icon_pack_path) -> Tuple[int, int]:
     with open(icon_pack_path, "r") as f:
         json_data = json.loads(f.read())
-        return int(json_data["name"].replace("NewUIFilesToOldUITheme_v", "")), len(json_data["models"])
+        return int(json_data["name"].replace("FilesOldUITheme_v", "")), len(json_data["models"])
 
 
 if __name__ == '__main__':
@@ -101,8 +101,8 @@ if __name__ == '__main__':
         raise ValueError(f"{ERR}IntelliJ sources folder required")
     if not exists(ij_sources_folder_input):
         raise ValueError(f"{ERR}IntelliJ sources folder '{ij_sources_folder_input}' not found")
-    if not exists("NewUIFilesToOldUITheme.json"):
-        raise FileNotFoundError(f"{ERR}Can't find NewUIFilesToOldUITheme.json")
+    if not exists("FilesOldUITheme.json"):
+        raise FileNotFoundError(f"{ERR}Can't find FilesOldUITheme.json")
 
     print(f"{NEUTRAL}Run git pull on IJ sources {ij_sources_folder_input}:", end=" ")
     ij_sources_pull_call = subprocess.run(f"git -C {ij_sources_folder_input} pull --progress",
@@ -121,15 +121,15 @@ if __name__ == '__main__':
 
     # we reset the theme's file because we want to be able to compute all the changes since last commit, even
     # if we run this Python program multiple times
-    restore_theme_call = subprocess.run("git restore NewUIFilesToOldUITheme.json", shell=True)
+    restore_theme_call = subprocess.run("git restore FilesOldUITheme.json", shell=True)
     if restore_theme_call.returncode == 0:
-        print(f"{OK}Restored NewUIFilesToOldUITheme.json file with success")
+        print(f"{OK}Restored FilesOldUITheme.json file with success")
     else:
         raise ValueError(
-            f"{ERR}Failed to restore NewUIFilesToOldUITheme.json file ; "
+            f"{ERR}Failed to restore FilesOldUITheme.json file ; "
             f"command returned code {restore_theme_call.returncode}")
 
-    icon_pack_version, nb_icons = get_icon_pack_version_and_nb_icons_from_file("NewUIFilesToOldUITheme.json")
+    icon_pack_version, nb_icons = get_icon_pack_version_and_nb_icons_from_file("FilesOldUITheme.json")
 
     ij_sources_folder_input = ij_sources_folder_input.replace("\\", "/")
 
@@ -183,28 +183,28 @@ if __name__ == '__main__':
 
     # set IconPack new version
     json_icon_pack = json_icon_pack_ij(icon_pack_items, icon_pack_version)
-    old_md5 = md5_sum_from_file("NewUIFilesToOldUITheme.json")
+    old_md5 = md5_sum_from_file("FilesOldUITheme.json")
     json_icon_pack_updated = (old_md5 != md5_sum_from_str(json_icon_pack))
     if json_icon_pack_updated:
         new_icon_pack_version = icon_pack_version + 1
         json_icon_pack = json_icon_pack.replace(
-            f"NewUIFilesToOldUITheme_v{icon_pack_version}",
-            f"NewUIFilesToOldUITheme_v{new_icon_pack_version}")
+            f"FilesOldUITheme_v{icon_pack_version}",
+            f"FilesOldUITheme_v{new_icon_pack_version}")
 
     # write the new IconPack
-    if exists("NewUIFilesToOldUITheme.json"):
-        os.remove("NewUIFilesToOldUITheme.json")
-    with open("NewUIFilesToOldUITheme.json", "w", newline="\n") as json_icon_pack_file:
+    if exists("FilesOldUITheme.json"):
+        os.remove("FilesOldUITheme.json")
+    with open("FilesOldUITheme.json", "w", newline="\n") as json_icon_pack_file:
         json_icon_pack_file.write(json_icon_pack)
-    print(f"{OK}つ ◕_◕ ༽つ Created NewUIFilesToOldUITheme.json Icon Pack")
+    print(f"{OK}つ ◕_◕ ༽つ Created FilesOldUITheme.json Icon Pack")
 
     # if IconPack has been updated, say it, update THEMES.md with the new number of icons in IconPack,
     # and update JSON IconPack file's version
     if json_icon_pack_updated:
-        print(f"{NEW}つ ◕_◕ ༽つ NewUIFilesToOldUITheme.json has been updated!")
+        print(f"{NEW}つ ◕_◕ ༽つ FilesOldUITheme.json has been updated!")
 
-        version_tag_start = "<!--NewUIFilesToOldUITheme_nbOfIcons_start-->"
-        version_tag_end = "<!--NewUIFilesToOldUITheme_nbOfIcons_end-->"
+        version_tag_start = "<!--FilesOldUITheme_nbOfIcons_start-->"
+        version_tag_end = "<!--FilesOldUITheme_nbOfIcons_end-->"
 
         version_regex = rf"{version_tag_start}[0-9]+{version_tag_end}"
         version_replacement = f"{version_tag_start}{len(icon_pack)}{version_tag_end}"
@@ -216,8 +216,8 @@ if __name__ == '__main__':
             theme_md_file.write(themes_md_str)
             print(f"{NEW}つ ◕_◕ ༽つ Updated THEMES.md with the new number of icons "
                   f"({len(icon_pack)}, \x1b[1;34m{len(icon_pack) - nb_icons} new\x1b[0m)")
-            print(f"{NEUTRAL}Git diff on NewUIFilesToOldUITheme.json:")
-            git_diff_call = subprocess.run("git diff NewUIFilesToOldUITheme.json", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            print(f"{NEUTRAL}Git diff on FilesOldUITheme.json:")
+            git_diff_call = subprocess.run("git diff FilesOldUITheme.json", shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             git_result = git_diff_call.stdout.decode("utf-8")
             git_result = re.sub("icon\":\".+\",", "icon:\"(base64 content)\",", git_result)
             for line in git_result.split("\n"):

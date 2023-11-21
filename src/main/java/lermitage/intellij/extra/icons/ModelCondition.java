@@ -16,13 +16,12 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Tag
 public class ModelCondition {
@@ -68,27 +67,27 @@ public class ModelCondition {
 
     public void setParents(String... parents) {
         this.checkParent = true;
-        this.parentNames = Stream.of(parents).collect(Collectors.toSet());
+        this.parentNames = toLowerCaseSet(parents);
     }
 
     public void setStart(String... base) {
         this.start = true;
-        this.names = base;
+        this.names = toLowerCaseArray(base);
     }
 
     public void setEq(String... base) {
         this.eq = true;
-        this.names = base;
+        this.names = toLowerCaseArray(base);
     }
 
     public void setMayEnd(String... extensions) {
         this.mayEnd = true;
-        this.extensions = extensions;
+        this.extensions = toLowerCaseArray(extensions);
     }
 
     public void setEnd(String... extensions) {
         this.end = true;
-        this.extensions = extensions;
+        this.extensions = toLowerCaseArray(extensions);
     }
 
     public void setNoDot() {
@@ -369,5 +368,21 @@ public class ModelCondition {
         result = 31 * result + Arrays.hashCode(extensions);
         result = 31 * result + Arrays.hashCode(facets);
         return result;
+    }
+
+    private String[] toLowerCaseArray(String... s) {
+        String[] res = new String[s.length];
+        for (int i = 0; i < s.length; i++) {
+            res[i] = s[i].toLowerCase();
+        }
+        return res;
+    }
+
+    private Set<String> toLowerCaseSet(String... s) {
+        Set<String> res = new HashSet<>(s.length);
+        for (String str : s) {
+            res.add(str.toLowerCase());
+        }
+        return res;
     }
 }

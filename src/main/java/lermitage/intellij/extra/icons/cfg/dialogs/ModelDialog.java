@@ -60,6 +60,8 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -226,7 +228,11 @@ public class ModelDialog extends DialogWrapper {
             if (model == null || model.getConditions().isEmpty()) {
                 testTextField.setBorder(new LineBorder(JBColor.RED, 1));
             } else {
-                boolean checked = model.check("", testTextField.getText(), testTextField.getText(), Collections.emptySet(), null);
+                boolean checked = model.check(
+                    parent(testTextField.getText().toLowerCase()),
+                    filenameOnly(testTextField.getText().toLowerCase()),
+                    testTextField.getText().toLowerCase(),
+                    Collections.emptySet(), null);
                 if (checked) {
                     testTextField.setBorder(new LineBorder(JBColor.GREEN, 1));
                 } else {
@@ -464,5 +470,28 @@ public class ModelDialog extends DialogWrapper {
         }
 
         return super.doValidate();
+    }
+
+    /**
+     * Find parent folder of given path, otherwise return empty string.
+     */
+    private String parent(String path) {
+        path = path.replace("\\\\", "/");
+        Matcher matcher = Pattern.compile(".*/(.+)/.+").matcher(path);
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        return "";
+    }
+
+    private String filenameOnly(String path) {
+        path = path.replace("\\\\", "/");
+        if (path.endsWith("/")) {
+            path = path.substring(0, path.length() - 1);
+        }
+        if (path.contains("/")) {
+            return path.substring(path.lastIndexOf("/") + 1);
+        }
+        return path;
     }
 }

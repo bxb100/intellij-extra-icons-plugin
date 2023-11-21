@@ -13,19 +13,25 @@
         <li>Shows an icon for <b>Git sub-module folders</b>.</li>
         <li><b>Highly configurable</b>: see <i>File &gt; Settings &gt; Appearance &amp; Behavior &gt; Extra Icons</i> to select extra icons to (de)activate. This is configurable at IDE and project level.</li>
         <li>You can also register <b>your own icons</b> in order to override file icons and all <a href="https://jetbrains.design/intellij/resources/icons_list/">IDE icons</a> (including toolbars, menus, etc.).</li>
-        <li>You can import and export icons from external files. This also means you can easily share icon themes with friends. You can also download online <b>icon packs</b> (example: <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin/blob/master/themes/THEMES.md#newuifilestoolduitheme">restore the old file icons when using the new UI</a>).</li>
+        <li>You can import and export icons from external files. This also means you can easily share icon themes with friends. You can also download online <b>icon packs</b> (example: <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin/blob/master/themes/THEMES.md#filesolduitheme">restore the <b>old file icons</b> when using the new UI</a>, or, <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin/blob/master/themes/THEMES.md#jpabuddyolduitheme">use <b>colorful icons for JPA Buddy</b> toolwindows icons</a>).</li>
         <li>For more information, please see this <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin/blob/master/docs/GET_STARTED.md">guide</a>.</li>
         <li>For questions about the plugin licensing model, how to get a license for free (students and teachers), and how to get a perpetual license, please see the <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin/blob/master/docs/LICENSE_FAQ.md">license FAQ</a>.</li>
         <li>JetBrains <b>Gateway</b> support: please install plugin in <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin/issues/152#issuecomment-1691873681">Host</a>, or in both Host and Client, but not in Client only. Also, for now, plugin's settings panels are partially broken (some fields are hidden, but become visible when clicked or hovered over), but icons override works.</li>
       </ul>
+      📢 If you want to <b>speed up</b> the resolution of a few problems on JetBrains side affecting this plugin, or <b>help plugin developers</b>, please consider up-voting these YouTrack issues:<br>
+      - <a href="https://youtrack.jetbrains.com/issue/IDEA-336801/plugin-SDK-cant-override-some-already-displayed-icons"><b>IDEA-336801</b></a>: an IntelliJ based IDEs issue affecting icons override.<br>
+      - <a href="https://youtrack.jetbrains.com/issue/RIDER-101621/Plugin-SDK-Rider-cant-override-folder-icons"><b>RIDER-101621</b></a>: a Rider IDE issue affecting folder icons override.<br>
+      - <a href="https://youtrack.jetbrains.com/issue/MP-4248"><b>MP-4248</b></a> and <a href="https://youtrack.jetbrains.com/issue/MP-5648/Allow-reviewing-payed-plugins-only-by-users-actually-owning-its-license"><b>MP-5648</b></a>: marketplace moderation problems.<br>
+      Thank you!
+      <br>
+      <br>
       Extra Icons <b>Chinese UI</b> is automatically applied if you enable the official IDE <a href="https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----">Chinese Language Pack</a> plugin.<br>
       如果你启用官方IDE中文语言包插件, Extra Icons中文用户界面将自动应用.
       <br>
       <br>
-      📢 If you want to <b>help plugin developers</b>, please consider up-voting YouTrack issues <a href="https://youtrack.jetbrains.com/issue/MP-4248"><b>MP-4248</b></a> and <a href="https://youtrack.jetbrains.com/issue/MP-5648/Allow-reviewing-payed-plugins-only-by-users-actually-owning-its-license"><b>MP-5648</b></a>. Thank you!
-      <br>
-      <br>
       <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin">GitHub</a> | <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin/issues">Issues</a> | <a href="https://github.com/jonathanlermitage/intellij-extra-icons-plugin/blob/master/CHANGELOG.md#extra-icons-change-log">Changelog</a> | <a href="https://www.linkedin.com/in/jonathan-lermitage/">LinkedIn</a> | <a href="https://vshymanskyy.github.io/StandWithUkraine/">💙 Help Ukraine 💛</a>
+      <br>
+      <br>
     ]]>
     </description>
 
@@ -54,17 +60,17 @@
         <!--suppress PluginXmlValidity (can't find third-party plugins, but it's OK) -->
         <fileIconProvider
             id="extraIconsFileIconProvider"
-            order="first, before amailp.intellij.robot, before com.vladsch.idea.multimarkdown, before com.hiberbee.intellij.hiberbee-theme, before nb-mind-map-idea, before mdx.js, before com.intellij.kubernetes, before tech.pantheon.yanginator, before com.intellij.mermaid, before com.jetbrains.writerside, before com.microsoft.tooling.msservices.intellij.azure"
+            order="first, before lermitage.intellij.extratci, before amailp.intellij.robot, before com.vladsch.idea.multimarkdown, before com.hiberbee.intellij.hiberbee-theme, before nb-mind-map-idea, before mdx.js, before com.intellij.kubernetes, before tech.pantheon.yanginator, before com.intellij.mermaid, before com.jetbrains.writerside, before com.microsoft.tooling.msservices.intellij.azure, before com.haulmont.jpab, before com.intellij.ml.llm"
             implementation="lermitage.intellij.extra.icons.ExtraIconProvider"/>
         <!--suppress PluginXmlValidity (can't find third-party plugins, but it's OK) -->
         <iconProvider
             id="extraIconsIconProvider"
-            order="first, before amailp.intellij.robot, before com.vladsch.idea.multimarkdown, before com.hiberbee.intellij.hiberbee-theme, before nb-mind-map-idea, before mdx.js, before com.intellij.kubernetes, before tech.pantheon.yanginator, before com.intellij.mermaid, before com.jetbrains.writerside, before com.microsoft.tooling.msservices.intellij.azure"
+            order="first, before lermitage.intellij.extratci, before amailp.intellij.robot, before com.vladsch.idea.multimarkdown, before com.hiberbee.intellij.hiberbee-theme, before nb-mind-map-idea, before mdx.js, before com.intellij.kubernetes, before tech.pantheon.yanginator, before com.intellij.mermaid, before com.jetbrains.writerside, before com.microsoft.tooling.msservices.intellij.azure, before com.haulmont.jpab, before com.intellij.ml.llm"
             implementation="lermitage.intellij.extra.icons.ExtraIconProvider"/>
         <!--suppress PluginXmlValidity (can't find third-party plugins, but it's OK) -->
         <projectViewNodeDecorator
             id="extraIconsProjectViewNodeDecorator"
-            order="first, before amailp.intellij.robot, before com.vladsch.idea.multimarkdown, before com.hiberbee.intellij.hiberbee-theme, before nb-mind-map-idea, before mdx.js, before com.intellij.kubernetes, before tech.pantheon.yanginator, before com.intellij.mermaid, before com.jetbrains.writerside, before com.microsoft.tooling.msservices.intellij.azure"
+            order="first, before lermitage.intellij.extratci, before amailp.intellij.robot, before com.vladsch.idea.multimarkdown, before com.hiberbee.intellij.hiberbee-theme, before nb-mind-map-idea, before mdx.js, before com.intellij.kubernetes, before tech.pantheon.yanginator, before com.intellij.mermaid, before com.jetbrains.writerside, before com.microsoft.tooling.msservices.intellij.azure, before com.haulmont.jpab, before com.intellij.ml.llm"
             implementation="lermitage.intellij.extra.icons.ExtraIconProvider"/>
 
         <!-- Settings services -->
