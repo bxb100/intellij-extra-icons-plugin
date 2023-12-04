@@ -1,5 +1,13 @@
 # Extra Icons Change Log
 
+## 2023.4.2 (2023/12/03)
+* **INFO**: JetBrains will introduce a new business model for paid/freemium plugins. This model will offer a perpetual license, **allowing users to make a one-time payment for the plugin and use it for a lifetime**. [Get more information here](https://github.com/jonathanlermitage/intellij-extra-icons-plugin/blob/master/docs/LICENSE_FAQ.md#how-to-get-a-lifetime-license).
+* implement [IDEA-336801](https://youtrack.jetbrains.com/issue/IDEA-336801) workaround: IDE's icon cache prevented some icons override on refresh (per example, after you enabled or disabled a custom icon).
+* implement a temporary and partial workaround for [IDEA-339254](https://youtrack.jetbrains.com/issue/IDEA-339254): can't refresh Java Exception and Java Abstract Exception IDE icons.
+* settings panel: inform user about some IntelliJ issues affecting this plugin.
+* support `.git-blame-ignore-revs` files.
+* add Angular 17 "renaissance" alternative icon for `angular.json` files.
+
 ## 2023.4.1 (2023/11/20)
 * improve Jenkins support. Thanks **lauragra-y (Laura Gray)** for her contribution!
 * add new UI icon variants for Tox folders, Python `.egg-info` folders, Python PyTest cache folders and Python Virtual Environment folders.

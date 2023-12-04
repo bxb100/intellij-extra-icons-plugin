@@ -4,6 +4,7 @@ package lermitage.intellij.extra.icons.utils;
 
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManagerCore;
+import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.diagnostic.Logger;
@@ -14,6 +15,8 @@ import org.jetbrains.annotations.NonNls;
 public class IJUtils {
 
     private static final @NonNls Logger LOGGER = Logger.getInstance(IJUtils.class);
+
+    public static final boolean IS_IDE_2023_OR_OLDER = isIde2023OrOlder();
 
     /**
      * Indicate if plugin <a href="https://github.com/jonathanlermitage/IconViewer">lermitage.intellij.iconviewer</a>
@@ -73,5 +76,14 @@ public class IJUtils {
                 });
             }
         });
+    }
+
+    private static synchronized boolean isIde2023OrOlder() {
+        try {
+            return Integer.parseInt(ApplicationInfo.getInstance().getMajorVersion()) < 2024;
+        } catch (Exception e) {
+            LOGGER.warn("Failed to determine if IDE version is < 2024. Ignoring, and let's say it's < 2024", e);
+            return false;
+        }
     }
 }

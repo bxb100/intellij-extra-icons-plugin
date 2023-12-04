@@ -11,6 +11,7 @@ import com.intellij.openapi.fileEditor.impl.EditorWindow;
 import com.intellij.openapi.project.DumbService;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.startup.ProjectActivity;
+import com.intellij.ui.IconDeferrer;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import lermitage.intellij.extra.icons.enablers.IconEnabler;
@@ -74,6 +75,9 @@ public class RefreshIconsListenerProjectActivity implements ProjectActivity {
     }
 
     private void refreshIcons(@Nullable Project project) {
+        if (IJUtils.IS_IDE_2023_OR_OLDER) {
+            IconDeferrer.getInstance().clearCache();
+        }
         IJUtils.runInEDT("refresh icons", () -> { //NON-NLS
             ApplicationManager.getApplication().runReadAction(() -> {
 

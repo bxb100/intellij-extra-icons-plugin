@@ -19,7 +19,7 @@ import javax.xml.xpath.XPathFactory
 
 plugins {
     id("java")
-    id("org.jetbrains.intellij") version "1.16.0" // https://github.com/JetBrains/gradle-intellij-plugin
+    id("org.jetbrains.intellij") version "1.16.1" // https://github.com/JetBrains/gradle-intellij-plugin
     id("org.jetbrains.changelog") version "2.2.0" // https://github.com/JetBrains/gradle-changelog-plugin
     id("com.github.ben-manes.versions") version "0.50.0" // https://github.com/ben-manes/gradle-versions-plugin
     id("com.adarshr.test-logger") version "4.0.0" // https://github.com/radarsh/gradle-test-logger-plugin
@@ -72,7 +72,7 @@ dependencies {
     // needed because may not be bundled in Gateway's client
     implementation("org.apache.commons:commons-collections4:4.4")
     implementation("commons-codec:commons-codec:1.16.0")
-    implementation("commons-io:commons-io:2.15.0")
+    implementation("commons-io:commons-io:2.15.1")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")

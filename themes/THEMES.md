@@ -9,14 +9,9 @@ Download a JSON Icon Pack (see Themes below), then go to Extra Icons settings, a
 
 ### AIAssistantTheme
 
-- download link: [AIAssistantTheme.json](https://raw.githubusercontent.com/jonathanlermitage/intellij-extra-icons-plugin/master/themes/AIAssistantTheme.json)
-- designed for: both old and new UIs, light theme
-- description: replaces the AI Assistant Star icon by the new Spiral icon
-- changelog:
-    - v1 - 2023/11/09: initial version
+- description: replaces the AI Assistant Star icon by the new coloured Spiral icon
 
-Screenshot:  
-![FilesOldUITheme Screenshot](media/AIAssistantTheme.png)
+2023/11/28: integrated into [Extra ToolWindow Colorful Icons plugin](https://plugins.jetbrains.com/plugin/16604-extra-toolwindow-colorful-icons/).
 
 ---
 
